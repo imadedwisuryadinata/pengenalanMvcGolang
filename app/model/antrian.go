@@ -8,7 +8,7 @@ import (
 	"firebase.google.com/go/db"
 )
 
-var data []Antrian
+//var data []Antrian
 
 type Antrian struct {
 	ID     string `json:"id"`
