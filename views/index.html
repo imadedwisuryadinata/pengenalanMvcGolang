@@ -13,7 +13,7 @@
       justify-content: center;
     }
 
-    .txt-antrian {
+    .text-antrian {
       font-size: 70px;
       font-weight: bold;
     }
@@ -50,12 +50,13 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  let antrianRef = firebase.database().ref('antrian')
-  antrianRef.on('value', function (snapshot){
+  const antrianRef = firebase.database().ref('antrian');
+  let currentAntrian;
+  antrianRef.on('value', snapshot => {
       const antrian = snapshot.val();
-      const currentAntrian = antrian.find(item => item != null && item.status === false)
+      currentAntrian = antrian.find(item => item != null && item.status === false)
       document.getElementById('txt-antrian').innerText = currentAntrian.id
-  })
+  });
 </script>
     
 </body>

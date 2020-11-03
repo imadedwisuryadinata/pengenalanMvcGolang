@@ -7,7 +7,8 @@ import (
 
 func main() {
 	router := gin.Default()
-	//router.GET("/". getSomething)
+	router.LoadHTMLGlob("views/*")
+
 	router.POST("/api/v1/antrian", controller.AddAntrianHandler)
 	router.GET("/api/v1/antrian/status", controller.GetAntrianHandler)
 	router.PUT("/api/v1/antrian/id/:idAntrian", controller.UpdateAntrianHandler)
